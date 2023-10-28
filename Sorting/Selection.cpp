@@ -4,20 +4,14 @@
 #include <vector>
 using namespace std;
 
-int findLowest(vector<int> v, int index){
-	int n=-1;
-	int lowest=0;
-	while (n!=index){
-		lowest=0;
-		for(int i=0;i<v.size();i++){
-			if (v[i]<v[lowest]){
-				lowest=i;
-			}
+int findLowest(vector<int> &v, int index){
+	int lowest=index;
+	for(int i=index;i<v.size();i++){
+		if (v[i]<v[lowest]){
+			lowest=i;
 		}
-		v.erase(v.begin()+lowest);
-		n++;
 	}
-	
+
 	return lowest;
 }
 
@@ -35,16 +29,17 @@ void Sort(vector<int> &old){
 }
 
 int main(){
-	vector<int> un_sorted={3,2,1};
+	vector<int> un_sorted={3,2,4,-1,3,5,1,0};
 	cout<<"Unsorted:"<<endl;
 	for (int i=0;i<un_sorted.size();i++){
-		cout<<un_sorted[i];
+		cout<<un_sorted[i]<<' ';
 	}
 	Sort(un_sorted);
 	cout<<"\nSorted:"<<endl;
 	for (int i=0;i<un_sorted.size();i++){
-		cout<<un_sorted[i];
+		cout<<un_sorted[i]<<' ';
 	}
 	return 0;
 }
+
 
