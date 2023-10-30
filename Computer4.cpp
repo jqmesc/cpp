@@ -331,6 +331,168 @@ int Computer4::TryStrategy(){
 				}
 			}
 		}
+	}	
+	// Diagonal Right
+	for (int x=0;x<5;x++){ // Try for 3 in a row
+		for (int y=0;y<5;y++){
+			string _test="";
+			int _index=0;
+			for (int i=x;i<x+4;i++){
+				_test=_test+Board[i][y+_index];
+				_index=_index+1;
+			}
+			if (_test=="XX  "){
+				int index=2;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x+index==7||Board[x+index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+				index=3;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x+index==7||Board[x+index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+			}
+			else if(_test=="X X "){
+				int index=1;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x+index==7||Board[x+index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+				index=3;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x+index==7||Board[x+index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+			}
+			else if (_test=="  XX"){
+				int index=0;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x+index==7||Board[x+index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+				index=1;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x+index==7||Board[x+index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+			}
+			else if (_test==" X X"){
+				int index=0;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x+index==7||Board[x+index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+				index=2;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x+index==7||Board[x+index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+			}
+			else if (_test==" XX "){
+				int index=0;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x+index==7||Board[x+index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+				index=3;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x+index==7||Board[x+index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+			}
+		}
+	}
+	// Diagonal Left
+	for (int x=7;x>2;x--){ // Try for 3 in a row
+		for (int y=0;y<5;y++){
+			string _test="";
+			int _index=0;
+			for (int i=x;i>x-4;i--){
+				_test=_test+Board[i][y+_index];
+				_index=_index+1;
+			}
+			if (_test=="XX  "){
+				int index=2;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x+index==7||Board[x-index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+				index=3;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x+index==7||Board[x-index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+			}
+			else if(_test=="X X "){
+				int index=1;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x-index==7||Board[x-index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+				index=3;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x-index==7||Board[x-index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+			}
+			else if(_test=="  XX"){
+				int index=0;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x-index==7||Board[x-index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+				index=1;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x-index==7||Board[x-index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+			}
+			else if(_test==" X X"){
+				int index=0;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x-index==7||Board[x-index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+				index=2;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x-index==7||Board[x-index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+			}
+			else if(_test==" XX "){
+				int index=0;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x-index==7||Board[x-index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+				index=3;
+				if (TryPlacement(y+index+1)==-1){	
+					if (x-index==7||Board[x-index+1][y+index]!=" "){
+						return y+index;
+					}
+				}
+			}
+		}
 	}
 	// Horizontal
 	for (int y=0;y<5;y++){ // Try for 3 in a row
@@ -440,188 +602,17 @@ int Computer4::TryStrategy(){
 			}
 		}
 	}
-	// Diagonal Right
-	for (int x=0;x<5;x++){ // Try for 3 in a row
-		for (int y=0;y<5;y++){
-			string _test="";
-			int _index=0;
-			for (int i=x;i<x+4;i++){
-				_test=_test+Board[i][y+_index];
-				_index=_index+1;
-			}
-			if (_test=="XX  "){
-				int index=2;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x+index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-				index=3;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x+index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-			}
-			else if(_test=="X X "){
-				int index=1;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x+index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-				index=3;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x+index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-			}
-			else if (_test=="  XX"){
-				int index=0;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x+index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-				index=1;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x+index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-			}
-			else if (_test==" X X"){
-				int index=0;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x+index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-				index=2;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x+index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-			}
-			else if (_test==" XX "){
-				int index=0;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x+index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-				index=3;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x+index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-			}
-			else if (_test=="OO  "){
-				int index=2;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x+index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-				index=3;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x+index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-			}
-		}
-	}
-	// Diagonal Left
-	for (int x=7;x>2;x--){ // Try for 3 in a row
-		for (int y=0;y<5;y++){
-			string _test="";
-			int _index=0;
-			for (int i=x;i>x-4;i--){
-				_test=_test+Board[i][y+_index];
-				_index=_index+1;
-			}
-			if (_test=="XX  "){
-				int index=2;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x-index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-				index=3;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x+index==7||Board[x-index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-			}
-			else if(_test=="X X "){
-				int index=1;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x-index==7||Board[x-index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-				index=3;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x-index==7||Board[x-index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-			}
-			else if(_test=="  XX"){
-				int index=0;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x-index==7||Board[x-index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-				index=1;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x-index==7||Board[x-index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-			}
-			else if(_test==" X X"){
-				int index=0;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x-index==7||Board[x-index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-				index=2;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x-index==7||Board[x-index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-			}
-			else if(_test==" XX "){
-				int index=0;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x-index==7||Board[x-index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-				index=3;
-				if (TryPlacement(y+index+1)==-1){	
-					if (x-index==7||Board[x-index+1][y+index]!=" "){
-						return y+index;
-					}
-				}
-			}
-		}
-	}
 	return -1;
 }
 
 int main(){
 	Computer4 game;
 	int rng=0;
+	string First="";
+	cout<<"Who should play the first move?\n(1) Computer\n(2) Player\n>";
+	cin>>First;
+	if (First=="1"){game.Turn="O";}
+	else{game.Turn="X";}
 	while (game.CheckWin()==0){
 		// Game in progress
 		if (game.Turn=="O") {game.Turn="X";}
