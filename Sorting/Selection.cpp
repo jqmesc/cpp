@@ -1,4 +1,5 @@
 /* Selection Sort */
+/* Swap each value with the lowest */
 
 #include <iostream>
 #include <vector>
@@ -29,7 +30,8 @@ void Sort(vector<int> &old){
 }
 
 int main(){
-	vector<int> un_sorted={3,2,4,-1,3,5,1,0};
+    vector<int> v={9,32,8,49,20,1}; // Unsorted
+
 	cout<<"Unsorted:"<<endl;
 	for (int i=0;i<un_sorted.size();i++){
 		cout<<un_sorted[i]<<' ';
