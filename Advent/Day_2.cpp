@@ -538,39 +538,60 @@ vector<vector<map<string,int>>> games={
 }};
 
 // Day 1
-const int MAX_RED=12;
-const int MAX_GRN=13;
-const int MAX_BLU=14;
+// const int MAX_RED=12;
+// const int MAX_GRN=13;
+// const int MAX_BLU=14;
 
+// int main(){
+// 	int total=0;
+// 	int game_num=0;
+// 	for (auto game:games){
+// 		bool valid=true;
+// 		game_num+=1;
+// 		for (auto match:game){
+// 			if (match["red"]>MAX_RED){
+// 				valid=false;
+// 				break;
+// 			}
+// 			else if (match["green"]>MAX_GRN){
+// 				valid=false;
+// 				break;
+// 			}
+// 			else if (match["blue"]>MAX_BLU){
+// 				valid=false;
+// 				break;
+// 			}
+// 			if (!valid){
+// 				break;
+// 			}
+// 		}
+// 		if (valid){
+// 			total+=game_num;
+// 		}
+// 	}	
+// 	cout<<total;
+// 	return 0;
+// }
+
+// Day 2
 int main(){
 	int total=0;
-	int game_num=0;
 	for (auto game:games){
-		bool valid=true;
-		game_num+=1;
+		map<string,int> m;
 		for (auto match:game){
-			if (match["red"]>MAX_RED){
-				valid=false;
-				break;
+			if (match["red"]>m["red"]){
+				m["red"]=match["red"];
 			}
-			else if (match["green"]>MAX_GRN){
-				valid=false;
-				break;
+			if (match["green"]>m["green"]){
+				m["green"]=match["green"];
 			}
-			else if (match["blue"]>MAX_BLU){
-				valid=false;
-				break;
-			}
-			if (!valid){
-				break;
+			if (match["blue"]>m["blue"]){
+				m["blue"]=match["blue"];
 			}
 		}
-		if (valid){
-			total+=game_num;
-		}
-	}	
+		total+=m["red"]*m["green"]*m["blue"];
+	}
 	cout<<total;
-	return 0;
 }
 
 
